@@ -8,25 +8,23 @@ import java.util.Scanner;
  * Introduction Java exercise to read file
  */
 public class FileRead {
-    private int[][] numbers;
-    int row = 8;
-    int column = 5;
+    int row = 5;
+    int column = 8;
+    int[][] numbers = new int[row][column];
+
     /**
      * Read the file and store the content to 2d array of int
      * @param file read file
      * @throws FileNotFoundException
      */
     public FileRead(File file) throws FileNotFoundException {
-        // TODO: read the file content and store content into numbers
 
         Scanner input = new Scanner(file);
-        String line = input.nextLine();
-        String[] n = line.split(" ");
 
-        for(int i = 0; i < row; i++){
-          for(int j = 0; j < column; j++){
-            numbers[i][j] = Integer.parseInt(n[j]);
-          }
+        for (int i = 0; i < row; i++) {
+            for(int j = 0; j < column; j++){
+                numbers[i][j] = input.nextInt();
+            }
         }
 
     }
@@ -39,23 +37,49 @@ public class FileRead {
      * lineNumber starts with 0 (programming friendly!)
      */
     public int mean(int lineNumber) {
-        return 0;
+        int mean = 0;
+
+        for (int i = 0; i < numbers[lineNumber].length; i++) {
+            mean += numbers[lineNumber][i];
+        }
+
+        int meanestMean = mean / column;
+
+        return meanestMean;
     }
 
     public int max(int lineNumber) {
-        return 0;
+        int max = numbers[lineNumber][0];
+
+        for (int i = 0; i < numbers[lineNumber].length; i++) {
+            if (max < numbers[lineNumber][i]) {
+                max = numbers[lineNumber][i];
+            }
+        }
+
+        return max;
     }
 
     public int min(int lineNumber) {
-        return 0;
+        int min = numbers[lineNumber][0];
+
+        for (int i = 0; i < numbers[lineNumber].length; i++) {
+            if (min > numbers[lineNumber][i]) {
+                min = numbers[lineNumber][i];
+            }
+        }
+
+        return min;
     }
 
     public int sum(int lineNumber) {
-        return 0;
-    }
+        int sum = 0;
 
-    public static void main(String[] args) {
+        for (int i = 0; i < numbers[lineNumber].length; i++) {
+            sum += numbers[lineNumber][i];
+        }
 
+        return sum;
     }
 
 }
