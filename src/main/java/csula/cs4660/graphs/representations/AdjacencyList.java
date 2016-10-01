@@ -2,12 +2,10 @@ package csula.cs4660.graphs.representations;
 
 import csula.cs4660.graphs.Edge;
 import csula.cs4660.graphs.Node;
+import csula.cs4660.utils.StringUtils;
 
 import java.io.File;
-import java.util.Collection;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
 /**
  * Adjacency list is probably the most common implementation to store the unknown
@@ -17,8 +15,26 @@ import java.util.Optional;
  */
 public class AdjacencyList implements Representation {
     private Map<Node, Collection<Edge>> adjacencyList;
+    List<Node> nodes;
+
+    // add to a list of nodes
 
     public AdjacencyList(File file) {
+        Scanner input = new Scanner(file);
+
+        String line;
+        while ((line = input.nextLine()) != null) {
+            // process the line.
+            if (line.equals(":")) {
+                // Do something with first line
+                line = input.nextLine();
+                // Split up the third line by space
+                String split[]= StringUtils.split(line); // split[1] = "Mozart," so you may need to do a little more work there
+            }
+        }
+        input.close();
+
+
     }
 
     public AdjacencyList() {
