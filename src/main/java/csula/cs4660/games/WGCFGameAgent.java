@@ -1,21 +1,19 @@
 package csula.cs4660.games;
 
-<<<<<<< HEAD
-=======
 import com.google.common.collect.Lists;
+import com.google.common.util.concurrent.Service;
 
 import java.util.*;
 
->>>>>>> e7f666c295f122a589044ce28a14dd56d2e097cd
 /**
  * Simple game agent for playing games
  */
 public class WGCFGameAgent {
-<<<<<<< HEAD
+
     public String getAction(boolean[] state) {
         // TODO: implement your BFS/A*
         return "";
-=======
+
     public class State {
         boolean[] data;
         State parent;
@@ -49,16 +47,16 @@ public class WGCFGameAgent {
 
     public String getAction(boolean[] state) {
         List<String> possibleActions = getPossibleActions(state);
-        Queue<State> frontier = new LinkedList<>();
-        frontier.add(new State(state));
+        Queue<Service.State> frontier = new LinkedList<>();
+        frontier.add(new Service.State(state));
 
         while (!frontier.isEmpty()) {
-            State current = frontier.poll();
+            Service.State current = frontier.poll();
 
             // for every possible action
             for (String possibleAction: getPossibleActions(current.data)) {
                 // state transition
-                State neighbor = stateTransition(current, possibleAction);
+                Service.State neighbor = stateTransition(current, possibleAction);
                 neighbor.parent = current;
                 if (isGoal(neighbor)) {
                     // construct actions from endTile
@@ -74,12 +72,12 @@ public class WGCFGameAgent {
         return possibleActions.get(rand.nextInt(possibleActions.size()));
     }
 
-    private String constructPath(State neighbor) {
+    private String constructPath(Service.State neighbor) {
         State current = neighbor;
         String result = "";
         while (!isStart(current)) {
             // construct action back from state to state
-            State parent = current.parent;
+            Service.State parent = current.parent;
             if (parent == null) {
                 break;
             }
@@ -201,6 +199,5 @@ public class WGCFGameAgent {
             default:
                 throw new IllegalArgumentException();
         }
->>>>>>> e7f666c295f122a589044ce28a14dd56d2e097cd
     }
 }
