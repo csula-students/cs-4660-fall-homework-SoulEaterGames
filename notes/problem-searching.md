@@ -163,6 +163,7 @@ we will cover later.
 DFS(startNode);
 
 function DFS(current) {
+<<<<<<< HEAD
   return DFS(current, []);
 }
 
@@ -179,6 +180,19 @@ function DFS(current, accum) {
     n.isDiscovered = true;
     accum.add(current);
     return DFS(children, accum);
+=======
+  return DFS(current, {});
+}
+
+function DFS(current, parents) {
+  for (child in chilren) {
+    if (child.isDiscovered) {
+      continue;
+    }
+    child.isDiscovered = true;
+    parents.put(current, child);
+    DFS(child, parents);
+>>>>>>> e7f666c295f122a589044ce28a14dd56d2e097cd
   }
 }
 ```

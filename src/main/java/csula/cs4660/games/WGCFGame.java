@@ -8,7 +8,11 @@ import java.util.Scanner;
 public class WGCFGame {
     private boolean[] WGCFState = {false, false, false, false};
     private int counter = 0;
+<<<<<<< HEAD
     private static final boolean forHuman = true;
+=======
+    private static final boolean forHuman = false;
+>>>>>>> e7f666c295f122a589044ce28a14dd56d2e097cd
 
     public static void main(String[] args) {
         WGCFGame game = new WGCFGame();
@@ -20,7 +24,13 @@ public class WGCFGame {
             if (forHuman) {
                 game.takeAction(in.next());
             } else {
+<<<<<<< HEAD
                 game.takeAction(agent.getAction(game.getState()));
+=======
+                String action = agent.getAction(game.getState());
+                System.out.println("got action from agent: " + action);
+                game.takeAction(action);
+>>>>>>> e7f666c295f122a589044ce28a14dd56d2e097cd
             }
             if (!game.isValidState()) {
                 System.out.println("You lose!");
